@@ -14,12 +14,12 @@ class EmpresaSeeder extends Seeder
     public function run(): void
     {
         Empresa::insert([
-            'nombre' => 'SK SAC',
-            'propietario' => 'Sak Code',
-            'ruc' => '1089674538',
+            'nombre' => 'Plaza Movil',
+            'propietario' => 'Felipe Cañon',
+            'ruc' => '420',
             'porcentaje_impuesto' => '15',
-            'abreviatura_impuesto' => 'IGV',
-            'direccion' => 'Av. Los Pinos n°789',
+            'abreviatura_impuesto' => 'IVA',
+            'direccion' => 'La Calle',
             'moneda_id' => 1
         ]);
     }

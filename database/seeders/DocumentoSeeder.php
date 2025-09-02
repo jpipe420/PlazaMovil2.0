@@ -14,6 +14,9 @@ class DocumentoSeeder extends Seeder
     {
         Documento::insert([
             [
+                'nombre' => 'Cedula',
+            ],
+            [
                 'nombre' => 'DNI',
             ],
             [
@@ -23,7 +26,7 @@ class DocumentoSeeder extends Seeder
                 'nombre' => 'RUC',
             ],
             [
-                'nombre' => 'Carnet Extranjería',
+                'nombre' => 'Cedula Extranjería',
             ],
         ]);
     }

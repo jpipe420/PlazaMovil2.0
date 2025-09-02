@@ -15,6 +15,12 @@ class MonedaSeeder extends Seeder
     {
         Moneda::insert([
             [
+
+               'estandar_iso' => 'COP',
+                'nombre_completo' => 'Peso Colombiano',
+                'simbolo' => '$'
+            ],
+            [
                 'estandar_iso' => 'USD',
                 'nombre_completo' => 'Dólar estadounidense',
                 'simbolo' => '$'
@@ -44,6 +50,7 @@ class MonedaSeeder extends Seeder
                 'nombre_completo' => 'Peso Chileno',
                 'simbolo' => '$'
             ],
+            
         ]);
     }
 }
