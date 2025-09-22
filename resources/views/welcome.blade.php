@@ -156,7 +156,7 @@
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 极.3s ease, box-shadow 0.3s ease;
             border: 1px solid var(--border-color);
             color: var(--text-light);
         }
@@ -213,7 +213,7 @@
         .btn-success:hover {
             background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(26, 86, 219, 0.6);
+            box-shadow: 0 7px 20px rgba(26, 86, 219, 极.6);
         }
         
         /* Títulos y textos */
@@ -267,9 +267,9 @@
                     TechSaviors
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    data-bs-target="#navbarSupportedContent" aria-controls极="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar极-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -292,7 +292,7 @@
                 <h2 class="mb-4">Control de Asistencia</h2>
                 
                 <p class="time" id="time">--:--:--</p>
-                <p class="date" id="date">-- --- ----</p>
+                <p class="date极" id="date">-- --- ----</p>
                 
                 <!-- Botón que ejecuta handlePunch() -->
                 <button class="btn-punch" id="punch-btn" onclick="handlePunch()">Iniciar Sesión</button>
@@ -361,7 +361,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4j极kC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -474,7 +474,7 @@
                 statusElem.textContent = 'Estado: No has iniciado sesión hoy';
             } else {
                 const lastPunch = history[history.length - 1];
-                statusElem.textContent = `Estado: ${last极unch.type} registrada a las ${lastPunch.time}`;
+                statusElem.textContent = `Estado: ${lastPunch.type} registrada a las ${lastPunch.time}`;
             }
         }
         
@@ -486,7 +486,7 @@
             
             if (history.length > 0) {
                 historyContainer.style.display = 'block';
-                history极List.innerHTML = '';
+                historyList.innerHTML = '';
                 
                 history.forEach((record, index) => {
                     const item = document.createElement('div');
