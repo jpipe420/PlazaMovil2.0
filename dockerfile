@@ -1,42 +1,25 @@
-# Etapa 1: Dependencias de PHP y Composer
-FROM php:8.2-fpm AS php
+FROM nixos/nix:latest
 
-# Instalar extensiones necesarias para Laravel
-RUN apt-get update && apt-get install -y \
-    unzip \
-    git \
-    libzip-dev \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    curl \
-    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd
+# setup phase
+WORKDIR /app
 
-# Instalar Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Copiar configuración de Nix
+COPY .nixpacks/nixpkgs-5148520bfab61f99fd25fb9ff7bfbb50dad3c9db.nix .nixpacks/nixpkgs-5148520bfab61f99fd25fb9ff7bfbb50dad3c9db.nix
+RUN nix-env -if .nixpacks/nixpkgs-5148520bfab61f99fd25fb9ff7bfbb50dad3c9db.nix && nix-collect-garbage -d
 
-WORKDIR /var/www
+# Instalar Composer manualmente si es necesario
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copiar archivos del proyecto
-COPY . .
+COPY .nixpacks/assets /assets/
+RUN chmod +x /assets/setup.sh && /assets/setup.sh
 
-# Instalar dependencias de Laravel
-RUN composer install --no-dev --optimize-autoloader \
-    && php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
+# install phase
+COPY . /app/.
+RUN composer install --no-dev --optimize-autoloader
+RUN npm install
 
-# Etapa 2: Servidor Nginx
-FROM nginx:stable-alpine
+# build phase
+RUN npm run build
 
-# Copiar configuración de Nginx
-COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-
-# Copiar el código del proyecto desde la etapa PHP
-COPY --from=php /var/www /var/www
-
-WORKDIR /var/www
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# start phase
+CMD ["/assets/start.sh"]
