@@ -1,6 +1,27 @@
 [phases.setup]
-nixPkgs = ["php82", "php82Extensions.pdo_mysql", "php82Extensions.mbstring", "php82Extensions.zip", "php82Extensions.bcmath", "php82Extensions.gd"]
+nixPkgs = [
+    "php83", 
+    "php83.extensions.pdo", 
+    "php83.extensions.pdo_mysql",
+    "php83.extensions.mbstring",
+    "php83.extensions.xml",
+    "php83.extensions.curl",
+    "php83.extensions.zip",
+    "php83.extensions.gd",
+    "php83.extensions.bcmath",
+    "php83.extensions.intl",
+    "nodejs_20",
+    "yarn"
+]
+
+[phases.install]
+cmds = [
+    "composer install --no-dev --optimize-autoloader",
+    "npm install"
+]
+
+[phases.build]
+cmds = ["npm run build"]
 
 [start]
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
-
