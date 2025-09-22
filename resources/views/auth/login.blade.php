@@ -206,8 +206,8 @@
                     <!-- Logo más grande -->
                     <img src="{{asset('assets/img/Plaza_Movil_Logo.png')}}" class="img-fluid" alt="Plaza Movil Logo" style="width: 150px; height: 150px;">
                 </div>
-                <h1 class="text-3xl font-bold mb-1" style="color: var(--text-light) !important; font-weight: bold;">PLAZA MOVIL</h1>
-                <p class="text-lg" style="color: var(--light-blue) !important; font-weight: bold;">COLOMBIA</p>
+                <h1 class="text-3xl font-bold mb-1" style="color: var(--text-light) !important; font-weight: bold;">TechSaviors</h1>
+                <p class="text-lg" style="color: var(--light-blue) !important; font-weight: bold;">Bogota</p>
             </div>
 
             <!-- ESTE ES EL DIV QUE CAMBIARÁ A AZUL AL PASAR EL MOUSE -->
