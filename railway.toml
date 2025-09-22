@@ -8,3 +8,7 @@ startCommand = "php -S 0.0.0.0:${PORT} -t public"
 APP_ENV = "production"
 APP_DEBUG = "false"
 APP_KEY = "base64:TU_APP_KEY_AQUI"
+
+
+[build.nixpacks]
+packages = ["php82", "php82Extensions.curl", "php82Extensions.mbstring", "php82Extensions.pdo_mysql", "composer"]
