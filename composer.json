@@ -57,6 +57,9 @@
         }
     },
     "config": {
+        "platform": {
+    "ext-gd": "7.4"
+  },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

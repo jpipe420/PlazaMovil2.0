@@ -236,7 +236,7 @@
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                            <label class="form-check-label" for="inputRememberPassword">Recordar contraseña?</label>
+                            <label class="form-check-label text-danger" for="inputRememberPassword">Recordar contraseña?</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                             <button class="btn btn-primary" type="submit"><a>Iniciar sesión</a></button>
