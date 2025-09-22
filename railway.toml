@@ -1,2 +1,2 @@
 [build]
-  phpVersion = "8.1"
+  "php": "^8.0"
