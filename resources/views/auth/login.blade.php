@@ -239,15 +239,13 @@
                             <label class="form-check-label" for="inputRememberPassword">Recordar contraseña?</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                            <a class="small login-link" href="password.html">Olvidaste la contraseña?</a>
-                            <button class="btn btn-login" type="submit">Iniciar sesión</button>
                             <a href="{{ route('panel') }}" class="btn btn-outline-warning">Volver</a>
                         </div>
                     </form>
                 </div>
-                <div class="card-footer text-center py-3">
-                    <div class="small"><a class="login-link" href="register.html">Necesitas una cuenta? Registrate!</a></div>
-                </div>
+                <!---<div class="card-footer text-center py-3">
+                 <div class="small"><a class="login-link" href="register.html">Necesitas una cuenta? Registrate!</a></div>
+                </div>--->
             </div>
         </div>
     </div>
