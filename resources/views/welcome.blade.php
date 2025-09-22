@@ -5,155 +5,247 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Plaza Movil,queremos llevar los productos frescos del campo a tu hogar" />
+    <meta name="description" content="TechSaviors,Soluciones tecnologicas" />
     <meta name="author" content="Felipe Cañon" />
-    <title>Plaza Movil</title>
+    <title>TechSaviors</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-<style>
-        /* Variables de colores para un esquema de colores consistente */
+    <style>
+        /* Variables de colores para un esquema azul y negro */
         :root {
-            --primary-green: #38a169;
-            --secondary-green: #2f855a;
-            --primary-blue: #4299e1;
-            --secondary-blue: #3182ce;
-            --text-dark: #2d3748;
-            --text-light: #f7fafc;
-            --background-dark: #2d3748;
-            --background-light: #ffffff; /* Cambiado a blanco sólido */
-            --card-bg: #fff;
-            --card-bg-dark: #2d3748;
-            --border-color: #e2e8f0;
+            --primary-blue: #1a56db;
+            --secondary-blue: #1e429f;
+            --dark-blue: #0f172a;
+            --medium-blue: #2563eb;
+            --light-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --text-light: #f1f5f9;
+            --text-dark: #1e293b;
+            --card-bg: #1e293b;
+            --card-bg-light: #f8fafc;
+            --border-color: #334155;
         }
 
         /* Estilos para el cuerpo y el contenedor principal */
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--background-light); /* Fondo blanco */
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* Eliminamos las reglas del tema oscuro que forzaban el fondo oscuro */
+        .container-fluid {
+            background-color: transparent;
+        }
+
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--accent-blue) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--light-blue) !important;
+        }
+
+        /* Estilos para el reloj de punto laboral */
+        .clock-container {
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            color: var(--text-light);
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+        
+        .time {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--light-blue);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .date {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            color: var(--accent-blue);
+        }
+        
+        .btn-punch {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 12px 40px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(26, 86, 219, 0.4);
+            cursor: pointer;
+        }
+        
+        .btn-punch:hover {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 86, 219, 0.6);
+        }
+        
+        .status {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+        }
+        
+        .punch-history {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .history-item {
+            background-color: rgba(30, 64, 175, 0.2);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-left: 4px solid var(--light-blue);
+        }
+
+        /* Estilos para el carrusel */
+        .carousel-item {
+            height: 400px;
+        }
+        
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            filter: brightness(0.7);
+        }
+        
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Estilos para las tarjetas de características */
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-card h3 {
+            color: var(--light-blue);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Estilos para las listas de beneficios */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .benefits-list li::before {
+            content: '🔹';
+            position: absolute;
+            left: 0;
+            color: var(--light-blue);
+        }
+        
+        /* Estilos para el footer */
+        footer {
+            background-color: rgba(15, 23, 42, 0.95);
+            margin-top: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Estilos para botones */
+        .btn-success {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(26, 86, 219, 0.4);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 86, 219, 0.6);
+        }
+        
+        /* Títulos y textos */
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-green);
+            color: var(--light-blue);
             text-align: center;
             margin-bottom: 1rem;
         }
-
+        
         .text-lead {
             font-size: 1.25rem;
             font-weight: 400;
             text-align: center;
             max-width: 800px;
             margin: 0 auto 3rem;
-            color: #4a5568;
+            color: var(--accent-blue);
         }
-
-        /* Estilos para las tarjetas de características */
-        .feature-card-container {
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            justify-content: center;
-        }
-
-        .feature-card {
-            background-color: var(--card-bg);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-card h3 {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Estilos para las listas de beneficios */
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .benefits-list li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-        }
-
-        .benefits-list li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-        }
-
-        /* Estilos para las imágenes */
-        .feature-image-wrapper {
-            margin-top: 1.5rem;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-image-wrapper:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Animación de aparición */
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        
+        /* Ajustes de responsividad */
+        @media (max-width: 768px) {
+            .time {
+                font-size: 3rem;
             }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .clock-container {
+                padding: 20px;
+                margin: 20px auto;
             }
         }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInSlideUp 0.8s ease forwards;
-            animation-timeline: view();
-            animation-range: entry 25% cover 50%;
-        }
-
     </style>
 </head>
 
 <body>
 
-    <!--Barra de navegación--->
+    <!--Barra de navegación-->
     <nav class="navbar navbar-expand-md bg-white">
         <div class="container-fluid">
             <!---Marca de navegación--->
-            <a class="navbar-brand" href="{{route('panel')}}" style="color: #00c040;">
+            <a class="navbar-brand" href="{{route('panel')}}">
                 <img src="{{ asset('assets/img/icon.png') }}" alt="Logo" width="30" height="30"
                     class="d-inline-block align-text-top rounded-circle">
-                Plaza Movil
+                TechSaviors
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -165,301 +257,80 @@
                 <!---Enlaces de Inicio y Acerca de (Izquierda)-->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('panel')}}" style="color: #4cbb17;">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('panel')}}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #4cbb17;">Acerca de</a>
+                        <a class="nav-link" href="#">Acerca de</a>
                     </li>
                 </ul>
-
-                <!---Otros enlaces de navegación (Empujados a la derecha)-->
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="#desafio" style="color: #4169e1;"> El Desafío </a>
-                    <a class="nav-link" href="#solucion" style="color: #4169e1;">Nuestra Solución</a>
-                    <a class="nav-link" href="#agricultores" style="color: #4169e1;">Para Agricultores</a>
-                    <a class="nav-link" href="#compradores" style="color: #4169e1;">Para Compradores</a>
-                </div>
-
             </div>
         </div>
     </nav>
 
+    <!-- Reloj de Punto Laboral -->
+    <div class="container">
+        <div class="clock-container">
+            <h2 class="mb-4">Control de Asistencia</h2>
+            
+            <p class="time" id="time">--:--:--</p>
+            <p class="date" id="date">-- --- ----</p>
+            
+            <!-- Botón que ejecuta punch() y luego redirige -->
+            <button class="btn-punch" id="punch-btn" onclick="handlePunch()">Iniciar Sesión</button>
+            
+            <div class="status" id="status">
+                Estado: No has iniciado sesión hoy
+            </div>
+            
+            <div class="punch-history mt-4" id="history-container" style="display: none;">
+                <h4>Registro de hoy:</h4>
+                <div id="history-list"></div>
+            </div>
+        </div>
+    </div>
 
     <!----Carrusel--->
-    <div id="carouselExample" class="carousel slide carousel-fade">
+    <!----<div id="carouselExample" class="carousel slide carousel-fade">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('assets/img/img_carrusel_1.png')}}" class="d-block w-100" alt="banner de invitacion">
 
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                     <form action="{{route('login.index')}}" method="get">
-                        <button class="btn btn-success btn-lg animate-button text-warning" type="submit">Iniciar sesión</button>
+                        <button class="btn btn-success btn-lg animate-button" type="submit">Iniciar sesión</button>
                     </form>
                 </div>
-
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('assets/img/img_carrusel_2.png')}}" class="d-block w-100" alt="Banner de publicidad">
-                <form action="{{route('login.index')}}" method="get">
-                        <button class="btn btn-success btn-lg animate-button text-warning" type="submit">Iniciar sesión</button>
-                </form>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('assets/img/img_carrusel_3.png')}}" class="d-block w-100" alt="Banner de contáctanos">
-                <form action="{{route('login.index')}}" method="get">
-                        <button class="btn btn-success btn-lg animate-button text-warning" type="submit">Iniciar sesión</button>
-                </form>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    </div>--->
 
-    <style>
-        /* Estilos para centrar y animar el botón */
-        .carousel-caption {
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0;
-        }
-
-        .animate-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .animate-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
-            background-color: #218838;
-            /* Un verde ligeramente más oscuro */
-            border-color: #1e7e34;
-        }
-
-        .animate-button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-
-    <!---Section Ventajas / Desventajas--->
-    <div class="container-fluid px-4">
-        <section id="desafio" class="section animate-on-scroll">
-            <h2 class="section-title">El Desafío del Campo</h2>
-            <p class="text-lead">El sector agrícola enfrenta desafíos significativos para llevar sus productos frescos
-                del campo a la mesa del consumidor. La distribución tradicional a menudo implica múltiples
-                intermediarios, lo que aumenta los costos y reduce los márgenes de ganancia para los agricultores.
-                Además, los consumidores carecen de acceso directo a productos frescos y de calidad, cultivados de
-                manera sostenible.</p>
-
-            <div class="feature-card-container">
-                <div class="feature-card">
-                    <h3>Barreras para el Productor</h3>
-                    <p>Los agricultores a menudo luchan por obtener un valor justo por su arduo trabajo. La cadena de
-                        suministro tradicional, con sus numerosos intermediarios, consume gran parte del beneficio,
-                        dejando a los productores con márgenes mínimos.</p>
-                    <ul class="benefits-list">
-                        <li>Precios injustos y volátiles para sus cosechas.</li>
-                        <li>Acceso limitado a mercados más amplios.</li>
-                        <li>Altos costos de logística y distribución.</li>
-                        <li>Desperdicio de productos por la ineficiencia de la cadena.</li>
-                    </ul>
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/agricultor-tablet.png')}}"
-                            alt="Agricultor usando tablet para gestionar su producción" loading="lazy">
+    <!---Section Frase--->
+    <div class="container mt-5">
+        <div class="feature-card">
+            <section class="container-fluid text-center">
+                <div class="container p-5 d-flex flex-column justify-content-between h-100">
+                    <div>
+                        <h2 class="mb-5">Compradores, Productos Frescos, Precios Justos<br>
+                            <span>¡Es momento de usar la tecnología como aliada!</span>
+                        </h2>
                     </div>
+                    <form action="{{route('login.index')}}" method="get">
+                        <button class="btn btn-success btn-lg animate-button" type="submit">Únete ahora!</button>
+                    </form>
                 </div>
-
-                <div class="feature-card">
-                    <h3>Necesidades del Consumidor</h3>
-                    <p>Los consumidores de hoy buscan transparencia, frescura y sostenibilidad. Quieren saber de dónde
-                        vienen sus alimentos y apoyar prácticas agrícolas responsables, pero a menudo se encuentran con
-                        opciones limitadas y precios inflados en los supermercados.</p>
-                    <ul class="benefits-list">
-                        <li>Deseo de productos más frescos y saludables.</li>
-                        <li>Búsqueda de precios justos y transparentes.</li>
-                        <li>Interés en apoyar a la economía local.</li>
-                        <li>Necesidad de conocer el origen de sus alimentos.</li>
-                    </ul>
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/frutas.png')}}" alt="Variedad de frutas y verduras frescas de la granja"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solucion" class="section animate-on-scroll">
-            <h2 class="section-title">La Solución: Plaza Móvil</h2>
-            <p class="text-lead">Plaza Móvil es el puente digital que conecta directamente el corazón del campo con tu
-                hogar. Nuestra plataforma innovadora empodera a los agricultores y brinda a los consumidores un acceso
-                sin precedentes a productos frescos, de temporada y cultivados con pasión.</p>
-
-            <div class="feature-card-container">
-                <div class="feature-card">
-                    <h3>Conexión Directa y Transparente</h3>
-                    <p>Eliminamos los intermediarios innecesarios, creando un canal directo donde los agricultores
-                        pueden exhibir y vender sus productos, y los consumidores pueden comprar con confianza, sabiendo
-                        que están recibiendo lo mejor del campo.</p>
-                    <ul class="benefits-list">
-                        <li>Transparencia total en la procedencia del producto.</li>
-                        <li>Precios más justos para productores y consumidores.</li>
-                        <li>Apoyo directo a la economía agrícola local.</li>
-                    </ul>
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/pmtablet.png')}}"
-                            alt="Interfaz de la aplicación móvil de Plaza Móvil" loading="lazy">
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <h3>Frescura Garantizada, Sostenibilidad Asegurada</h3>
-                    <p>Al acortar la cadena de suministro, garantizamos que los productos lleguen a tu mesa en su punto
-                        óptimo de frescura. Fomentamos prácticas agrícolas sostenibles y reducimos la huella de carbono
-                        asociada al transporte.</p>
-                    <ul class="benefits-list">
-                        <li>Productos más frescos y nutritivos.</li>
-                        <li>Reducción del desperdicio de alimentos.</li>
-                        <li>Promoción de la agricultura sostenible.</li>
-                    </ul>
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/canasta.png')}}" alt="Cesta llena de vegetales recién cosechados"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="agricultores" class="section animate-on-scroll text-center">
-            <h2 class="section-title">Agricultores, su Cosecha al Alcance de Todos</h2>
-            <p class="text-lead">Con Plaza Móvil, los agricultores tienen la oportunidad de llevar sus productos
-                directamente a los consumidores, eliminando intermediarios. Esto les permite obtener precios justos por
-                su trabajo, reducir pérdidas post-cosecha y establecer relaciones duraderas con sus clientes. Nuestra
-                plataforma facilita la gestión de inventario, pedidos y entregas de manera eficiente.</p>
-            <div class="feature-card-container">
-                <div class="feature-card">
-                    <h3>Beneficios Tangibles para Usted</h3>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-coins me-2"></i>Mayor rentabilidad por sus cosechas.</li>
-                        <li><i class="fas fa-hand-pointer me-2"></i>Control total sobre sus precios y condiciones de
-                            venta.</li>
-                        <li><i class="fas fa-globe-americas me-2"></i>Acceso a un mercado más amplio de consumidores.
-                        </li>
-                        <li><i class="fas fa-leaf me-2"></i>Reducción de pérdidas post-cosecha y desperdicios.</li>
-                        <li><i class="fas fa-star me-2"></i>Construcción de una marca y reputación local.</li>
-                    </ul>
-
-                    <div class="feature-card">
-                        <div class="feature-image-wrapper">
-                            <img src="{{asset('assets/img/agricultor-campo.png')}}"
-                                alt="Agricultor sonriendo en su campo con productos frescos" loading="lazy">
-                        </div>
-                        <p class="mt-4">Plaza Móvil está diseñado pensando en usted, el productor. Facilita la
-                            administración de su inventario, la visibilidad de sus productos y la conexión con una
-                            comunidad creciente de compradores conscientes.</p>
-                    </div>
-                </div>
-        </section>
-
-        <section id="compradores" class="section animate-on-scroll text-center">
-            <h2 class="section-title">Compradores, Productos Frescos, Precios Justos</h2>
-            <p class="text-lead">Plaza Móvil permite a los consumidores acceder a una amplia variedad de productos
-                frescos directamente de los agricultores locales. Benefíciate de precios justos, frescura inigualable y
-                la satisfacción de saber de dónde provienen tus alimentos. Apoya a los productores locales y disfruta de
-                productos de la más alta calidad.</p>
-            <div class="feature-card-container">
-                <div class="feature-card">
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/buyer-image.png')}}"
-                            alt="Persona comprando productos frescos en un mercado local" loading="lazy">
-                    </div><br>
-                    <p class="mt-4">Explore nuestro catálogo de productos frescos. Desde frutas de temporada hasta
-                        vegetales orgánicos, lácteos y más, todo entregado con la garantía de frescura directa del
-                        productor.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Ventajas para el Consumidor</h3>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-shopping-basket me-2"></i>Acceso a productos de la más alta calidad y
-                            frescura.</li>
-                        <li><i class="fas fa-tag me-2"></i>Precios más competitivos al eliminar intermediarios.</li>
-                        <li><i class="fas fa-handshake me-2"></i>Conexión directa con los agricultores locales.</li>
-                        <li><i class="fas fa-seedling me-2"></i>Contribución al desarrollo sostenible y la economía
-                            local.</li>
-                        <li><i class="fas fa-truck-fast me-2"></i>Opciones de entrega convenientes.</li>
-                    </ul>
-                    <div class="feature-image-wrapper">
-                        <img src="{{asset('assets/img/compracalle.png')}}"
-                            alt="Persona comprando productos frescos en un mercado local" loading="lazy">
-                    </div>
-                </div>
-            </div><br>
-            
-
-            <!---Section Frase--->
-            <div class="feature-card">
-                <section class="container-fluid text-center">
-                    <div class="container p-5 d-flex flex-column justify-content-between h-100">
-                        <div>
-                            <h2 class="text-success mb-5">Compradores, Productos Frescos, Precios Justos<br>
-                                <span class="text-info">¡Es momento de usar la tecnología como aliada!</span>
-                            </h2>
-                        </div>
-                        <form action="{{route('login.index')}}" method="get">
-                            <button class="btn btn-success btn-lg animate-button text-info" type="submit">Únete ahora!</button>
-                        </form>
-                    </div>
-                </section>
-            </div>
-
-            <style>
-                /* Estilos para centrar y animar el botón */
-                .carousel-caption {
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    padding: 0;
-                }
-
-                .animate-button {
-                    transition: all 0.3s ease;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                }
-
-                .animate-button:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
-                    background-color: #218838;
-                    /* Un verde ligeramente más oscuro */
-                    border-color: #1e7e34;
-                }
-
-                .animate-button:active {
-                    transform: translateY(0);
-                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-                }
-            </style>
-
-        </section>
+            </section>
+        </div>
     </div>
 
     <!---Footer--->
-    <footer class="text-center text-white">
+    <footer class="text-center text-white mt-5">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
             <!-- Section: Social media -->
             <section class="mb-4">
 
                 <!-- Instagram -->
-                <a class="btn btn-outline-warning btn-floating m-1" href="h#" role="button" target="_blank">
+                <a class="btn btn-outline-light btn-floating m-1" href="h#" role="button" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-instagram" viewBox="0 0 16 16">
                         <path
@@ -468,7 +339,7 @@
                 </a>
 
                 <!-- Linkedin -->
-                <a class="btn btn-outline-warning btn-floating m-1" href="#!" role="button">
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-linkedin" viewBox="0 0 16 16">
                         <path
@@ -477,7 +348,7 @@
                 </a>
 
                 <!-- Github -->
-                <a class="btn btn-outline-warning btn-floating m-1" href="#" role="button" target="_blank">
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-github" viewBox="0 0 16 16">
                         <path
@@ -492,7 +363,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2025 Copyright:
-            <a class="text-red" href="#">plazamovil.com</a>
+            <a class="text-white" href="#">techsaviors.com</a>
         </div>
         <!-- Copyright -->
     </footer>
@@ -503,6 +374,120 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    
+    <!-- Script para el reloj de punto laboral -->
+    <script>
+        // Actualizar reloj en tiempo real
+        function updateClock() {
+            const now = new Date();
+            
+            // Formatear hora
+            const time = now.toLocaleTimeString('es-ES');
+            document.getElementById('time').textContent = time;
+            
+            // Formatear fecha
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const date = now.toLocaleDateString('es-ES', options);
+            document.getElementById('date').textContent = date;
+        }
+        
+        // Inicializar y actualizar cada segundo
+        updateClock();
+        setInterval(updateClock, 1000);
+        
+        // Función para registrar entrada/salida
+        function punch() {
+            const now = new Date();
+            const punchTime = now.toLocaleTimeString('es-ES');
+            const punchDate = now.toLocaleDateString('es-ES');
+            
+            // Obtener historial actual desde localStorage
+            let todayHistory = JSON.parse(localStorage.getItem('punchHistory')) || [];
+            
+            // Determinar tipo de registro (entrada/salida)
+            let punchType = 'Entrada';
+            if (todayHistory.length > 0 && todayHistory[todayHistory.length - 1].type === 'Entrada') {
+                punchType = 'Salida';
+            }
+            
+            // Agregar nuevo registro
+            const newPunch = {
+                type: punchType,
+                time: punchTime,
+                date: punchDate
+            };
+            
+            todayHistory.push(newPunch);
+            localStorage.setItem('punchHistory', JSON.stringify(todayHistory));
+            
+            // Actualizar UI
+            updateStatus();
+            showHistory();
+            
+            // Cambiar texto del botón para siguiente acción
+            document.getElementById('punch-btn').textContent = 
+                punchType === 'Entrada' ? 'Registrar Salida' : 'Registrar Entrada';
+                
+            return true;
+        }
+        
+        // Función que maneja el clic del botón
+        function handlePunch() {
+            // Registrar la entrada/salida
+            punch();
+            
+            // Redirigir al login después de un breve retraso para que se actualice la UI
+            setTimeout(() => {
+                window.location.href = "{{route('login.index')}}";
+            }, 500);
+        }
+        
+        // Actualizar estado mostrado
+        function updateStatus() {
+            const history = JSON.parse(localStorage.getItem('punchHistory')) || [];
+            const statusElem = document.getElementById('status');
+            
+            if (history.length === 0) {
+                statusElem.textContent = 'Estado: No has iniciado sesión hoy';
+            } else {
+                const lastPunch = history[history.length - 1];
+                statusElem.textContent = `Estado: ${lastPunch.type} registrada a las ${lastPunch.time}`;
+            }
+        }
+        
+        // Mostrar historial de registros
+        function showHistory() {
+            const history = JSON.parse(localStorage.getItem('punchHistory')) || [];
+            const historyList = document.getElementById('history-list');
+            const historyContainer = document.getElementById('history-container');
+            
+            if (history.length > 0) {
+                historyContainer.style.display = 'block';
+                historyList.innerHTML = '';
+                
+                history.forEach((record, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item';
+                    item.innerHTML = `<strong>${record.type}:</strong> ${record.time}`;
+                    historyList.appendChild(item);
+                });
+            } else {
+                historyContainer.style.display = 'none';
+            }
+        }
+        
+        // Inicializar la vista
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatus();
+            showHistory();
+            
+            // Verificar el último registro para establecer el texto del botón
+            const history = JSON.parse(localStorage.getItem('punchHistory')) || [];
+            if (history.length > 0 && history[history.length - 1].type === 'Entrada') {
+                document.getElementById('punch-btn').textContent = 'Registrar Salida';
+            }
+        });
+    </script>
 </body>
 
 </html>
