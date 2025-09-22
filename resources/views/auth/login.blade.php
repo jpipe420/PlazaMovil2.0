@@ -239,6 +239,7 @@
                             <label class="form-check-label" for="inputRememberPassword">Recordar contraseña?</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button class="btn btn-primary" type="submit"><a>Iniciar sesión</a></button>
                             <a href="{{ route('panel') }}" class="btn btn-outline-warning">Volver</a>
                         </div>
                     </form>

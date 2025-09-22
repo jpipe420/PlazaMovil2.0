@@ -272,9 +272,9 @@
                     <span class="navbar极-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!---Enlaces de Inicio y Acerca de (Izquierda)-->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!---<div class="collapse navbar-collapse" id="navbarSupportedContent">--->
+                    <!---Enlaces de Inicio y Acerca de (Izquierda)--->
+                    <!---<ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{route('panel')}}">Inicio</a>
                         </li>
@@ -282,7 +282,7 @@
                             <a class="nav-link" href="#">Acerca de</a>
                         </li>
                     </ul>
-                </div>
+                </div>--->
             </div>
         </nav>
 
